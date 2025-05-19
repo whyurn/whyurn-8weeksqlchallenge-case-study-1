@@ -1,0 +1,12 @@
+/*
+What is the total amount each customer spent at the restaurant?
+Join the product IDs of the menu and sales tables, sum up the price of each menu item and group by the customer ID
+*/
+
+SELECT
+customer_Id,
+SUM(dannys_diner.menu.price) AS total_spent
+FROM dannys_diner.sales
+INNER JOIN dannys_diner.menu on dannys_diner.sales.product_Id = dannys_diner.menu.product_Id
+GROUP BY customer_ID
+ORDER BY total_spent DESC
